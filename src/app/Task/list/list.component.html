@@ -1,0 +1,12 @@
+<div *ngIf="tasks.length>0; then taskList else emptyListInfo"></div>
+<ng-template #taskList>
+<ul>
+  <li *ngFor="let task of tasks">
+    {{task.Title}}
+    <button [routerLink]="task.Id.toString()" class="btn btn-outline-dark">Details</button>
+  </li>
+</ul>
+</ng-template>
+<ng-template #emptyListInfo>
+  <h3 style="color: red">Task list empty</h3>
+</ng-template>

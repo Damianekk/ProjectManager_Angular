@@ -1,0 +1,6 @@
+<div class="form-group">
+  <input [(ngModel)]="projectName" #projectNameRef="ngModel" class="form-control col-lg-2" required>
+  <b *ngIf="!projectNameRef.valid && projectNameRef.dirty" class="errorMsg">{{errorMsg}}</b>
+  <br>
+</div>
+<button (click)="addProject()" [disabled]="!projectNameRef.valid" class="btn btn-outline-success">Save</button>
