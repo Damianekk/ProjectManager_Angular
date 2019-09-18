@@ -1,3 +1,5 @@
+<button class="btn btn-outline-info" routerLink="/tasks/add" >Add task</button>
+
 <div *ngIf="tasks.length>0; then taskList else emptyListInfo"></div>
 <ng-template #taskList>
 <ul>

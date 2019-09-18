@@ -13,6 +13,7 @@ import { ProjectsStatsComponent } from './Project/projects-stats/projects-stats.
 import { from } from 'rxjs';
 import { TaskDetailsComponent } from './Task/task-details/task-details.component';
 import { AppService } from './Services/app-service.service';
+import { TaskAddComponent } from './Task/task-add/task-add.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppService } from './Services/app-service.service';
     PageNotFoundComponent,
     ProjectsStatsComponent,
     TaskDetailsComponent,
+    TaskAddComponent,
   ],
   imports: [
     BrowserModule,

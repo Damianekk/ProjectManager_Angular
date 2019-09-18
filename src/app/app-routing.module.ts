@@ -1,3 +1,4 @@
+import { TaskAddComponent } from './Task/task-add/task-add.component';
 import { DetailsComponent as ProjectDetails } from './Project/details/details.component';
 import { AddComponent as AddProject } from './Project/add/add.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
         component: ProjectDetails
       }
     ]
+  },
+  {
+    path: 'tasks/add',
+    component: TaskAddComponent
   },
   {
     path: 'tasks/:id',

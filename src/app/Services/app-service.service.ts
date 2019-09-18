@@ -30,6 +30,12 @@ export class AppService {
     this.projectsListObs.next(projects);
   }
 
+  AddTask(newTask: Task){
+    const tasks = this.tasksListObs.getValue();
+    tasks.push(newTask);
+    this.tasksListObs.next(tasks);
+  }
+
   addTask(newTask: string) {
     const task = new Task(newTask);
     const tasks = this.tasksListObs.getValue();
