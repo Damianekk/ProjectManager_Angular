@@ -12,20 +12,6 @@ import { TaskDetailsComponent } from './Task/task-details/task-details.component
 
 const routes: Routes = [
   {
-    path: 'projects/add',
-    component: AddProject
-  },
-  {
-    path: 'projects',
-    component: Projects,
-    children: [
-      {
-        path: ':name',
-        component: ProjectDetails
-      }
-    ]
-  },
-  {
     path: 'tasks/add',
     component: TaskAddComponent
   },
