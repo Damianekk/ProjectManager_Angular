@@ -11,20 +11,15 @@ import { from } from 'rxjs';
 import { TaskDetailsComponent } from './Task/task-details/task-details.component';
 import { AppService } from './Services/app-service.service';
 import { TaskAddComponent } from './Task/task-add/task-add.component';
-import { ProjectModule } from './Project/project.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Tasks,
     PageNotFoundComponent,
-    TaskDetailsComponent,
-    TaskAddComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ProjectModule, // gdy mamy wydzielony routing z projektów to ta linijka musi być przed importem ogólnego routingu bo inaczej routing z projektów nie będzie działać
     AppRoutingModule,
     SharedModule
   ],

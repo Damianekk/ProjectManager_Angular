@@ -4,17 +4,17 @@ import { AddComponent, ListComponent, DetailsComponent } from './index';
 
 const routes: Routes = [
   {
-    path: 'projects/add',
+    path: 'add',
     component: AddComponent
   },
   {
-    path: 'projects',
+    path: '',
     component: ListComponent,
     children: [
       {
         path: ':name',
         component: DetailsComponent
-      }
+      },
     ]
   },
 ];

@@ -1,27 +1,16 @@
-import { TaskAddComponent } from './Task/task-add/task-add.component';
-import { DetailsComponent as ProjectDetails } from './Project/details/details.component';
-import { AddComponent as AddProject } from './Project/add/add.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-import { ListComponent as Projects } from './Project/list/list.component';
-import { ListComponent  as Tasks} from './Task/list/list.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadingStrategy, PreloadAllModules } from '@angular/router';
 import { from } from 'rxjs';
-import { TaskDetailsComponent } from './Task/task-details/task-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: 'tasks/add',
-    component: TaskAddComponent
-  },
-  {
-    path: 'tasks/:id',
-    component: TaskDetailsComponent
+    path: 'projects',
+    loadChildren: './Project/project.module#ProjectModule'
   },
   {
     path: 'tasks',
-    component: Tasks
+    loadChildren: './Task/task.module#TaskModule'
   },
   {
     path: '**',
@@ -32,7 +21,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    // ProjectModule, // gdy mamy wydzielony routing z projektów to ta linijka musi być przed importem ogólnego routingu bo inaczej routing z projektów nie będzie działać
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
