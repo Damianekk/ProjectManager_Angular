@@ -6,18 +6,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   {
     path: 'projects',
-    loadChildren: './Project/project.module#ProjectModule'
+    loadChildren: () => import('./Project/project.module').then(m => m.ProjectModule)
   },
   {
     path: 'tasks',
-    loadChildren: './Task/task.module#TaskModule'
+    loadChildren: () => import('./Task/task.module').then(m => m.TaskModule)
   },
   {
     path: '**',
     component: PageNotFoundComponent
   },
-
-
 ];
 
 @NgModule({
