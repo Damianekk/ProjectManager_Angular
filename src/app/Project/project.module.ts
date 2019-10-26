@@ -17,6 +17,7 @@ import { ProjectRoutingModule } from './project.routing.module';
     FormsModule,
     ProjectRoutingModule,
     ReactiveFormsModule,
+    SharedModule,
   ]
 })
 export class ProjectModule {}

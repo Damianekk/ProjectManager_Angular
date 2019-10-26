@@ -12,7 +12,7 @@ import { TaskDetailsComponent } from './Task/task-details/task-details.component
 
 const routes: Routes = [
   {
-    path: 'tasks/add',
+    path: 'tasks/add/:id',
     component: TaskAddComponent
   },
   {

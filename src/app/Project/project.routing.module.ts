@@ -12,7 +12,7 @@ const routes: Routes = [
     component: ListComponent,
     children: [
       {
-        path: ':name',
+        path: ':id',
         component: DetailsComponent
       }
     ]

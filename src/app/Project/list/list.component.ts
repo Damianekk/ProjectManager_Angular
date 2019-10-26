@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from './../../Services/app-service.service';
+import { Project } from 'src/app/Models/ProjectModel';
 
 @Component({
   selector: 'app-project-list',
@@ -18,8 +19,8 @@ export class ListComponent implements OnInit {
     });
   }
 
-  add(){
-    this.appService.AddProject('auuu');
+  add() {
+    this.appService.AddProject(new Project('auuu' + new Date().toTimeString()));
   }
 
 }

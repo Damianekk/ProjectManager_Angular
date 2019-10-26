@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppService } from './../../Services/app-service.service';
 import { from } from 'rxjs';
+import { Project } from 'src/app/Models/ProjectModel';
 
 @Component({
   selector: 'app-project-add',
@@ -10,6 +11,7 @@ import { from } from 'rxjs';
 })
 export class AddComponent implements OnInit {
 
+  project: Project;
   projectName = '';
   errorMsg = 'Uzupełnij pole';
   showError = false;
@@ -19,18 +21,17 @@ export class AddComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.project = new Project();
   }
 
   addProject() {
-    if (this.projectName === '') {
+    if (this.project.ProjectName === '') {
       this.showError = true;
       return;
     }
+    console.log(this.project.ProjectName);
     this.showError = false;
-    this.appService.AddProject(this.projectName);
-    this.projectName = '';
+    this.appService.AddProject(this.project);
     this.router.navigate(['/projects']);
-
   }
 }

@@ -1,16 +1,15 @@
 import { Guid } from 'guid-typescript';
 
-export class Task{
-  Title: string;
+export class Project{
+  ProjectName: string;
   Created: Date;
   Id: Guid;
-  ProjectId?: Guid;
 
   /**
    *
    */
-  constructor(title?: string) {
-     this.Title = title;
+  constructor(ProjectName?: string) {
+     this.ProjectName = ProjectName;
      this.Created = new Date();
      this.Id = Guid.create();
   }

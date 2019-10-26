@@ -1,3 +1,4 @@
+import { Task } from 'src/app/Models/TaskModel';
 import { AppService } from './../../Services/app-service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -9,18 +10,16 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  projectName;
-  projects;
+  project;
+  projectTasks: Task[];
   constructor(private appService: AppService, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
     this.route.paramMap.subscribe((param: Params) => {
-      this.projectName = param.get('name');
-    });
-
-    this.appService.getProjectsListObs().subscribe(projects => {
-      this.projects = projects;
+      const guid = param.get('id');
+      this.project = this.appService.getProject(guid);
+      this.projectTasks = this.appService.getProjectTasks(guid);
     });
   }
 }

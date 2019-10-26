@@ -2,13 +2,14 @@ import { Guid } from 'guid-typescript';
 import { Injectable } from '@angular/core';
 import { Task } from '../Models/TaskModel';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Project } from '../Models/ProjectModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  private projectsListObs = new BehaviorSubject<Array<string>>([]);
+  private projectsListObs = new BehaviorSubject<Array<Project>>([]);
   private tasksListObs = new BehaviorSubject<Array<Task>>([]);
 
   constructor() {
@@ -16,7 +17,7 @@ export class AppService {
   }
 
   private initProjects(): void {
-    const projects =  ['proj 1', 'proj 2', 'proj 3'];
+    const projects =  [new Project('test 1'), new Project('test 2'), new Project('test 3')];
     this.projectsListObs.next(projects);
 
     this.addTask('nadsos');
@@ -24,7 +25,8 @@ export class AppService {
 
   }
 
-  AddProject(newProject: string){
+  AddProject(newProject: Project){
+    console.log(newProject);
     const projects = this.projectsListObs.getValue();
     projects.push(newProject);
     this.projectsListObs.next(projects);
@@ -32,6 +34,7 @@ export class AppService {
 
   AddTask(newTask: Task){
     const tasks = this.tasksListObs.getValue();
+    console.log(newTask);
     tasks.push(newTask);
     this.tasksListObs.next(tasks);
   }
@@ -51,7 +54,7 @@ export class AppService {
     console.log('deleted task: ' + taskId);
   }
 
-  getProjectsListObs(): Observable<Array<string>> {
+  getProjectsListObs(): Observable<Array<Project>> {
     return this.projectsListObs.asObservable();
   }
 
@@ -59,8 +62,18 @@ export class AppService {
     return this.tasksListObs.asObservable();
   }
 
+  getProject(projectId: Guid): Project {
+    const project = this.projectsListObs.getValue().filter(x => x.Id.equals(projectId))[0];
+    return project;
+  }
+
   getTask(taskId: Guid): Task {
     const task = this.tasksListObs.getValue().filter(x => x.Id.equals(taskId))[0];
     return task;
+  }
+
+  getProjectTasks(projectId: Guid): Array<Task> {
+    const tasks = this.tasksListObs.getValue().filter(x => x.ProjectId === projectId);
+    return tasks;
   }
 }
