@@ -11,6 +11,8 @@ import { from } from 'rxjs';
 import { TaskDetailsComponent } from './Task/task-details/task-details.component';
 import { AppService } from './Services/app-service.service';
 import { TaskAddComponent } from './Task/task-add/task-add.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import { TaskAddComponent } from './Task/task-add/task-add.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot(),
+    NbLayoutModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

@@ -4,6 +4,10 @@ import { TaskAddComponent, ListComponent, TaskDetailsComponent } from './index';
 
 const routes: Routes = [
   {
+    path: 'add',
+    component: TaskAddComponent
+  },
+  {
     path: 'add/:id',
     component: TaskAddComponent
   },
