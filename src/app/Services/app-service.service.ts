@@ -44,14 +44,12 @@ export class AppService {
     const tasks = this.tasksListObs.getValue();
     tasks.push(task);
     newTask = '';
-    console.log('Added new task: ' + task.Id);
     this.tasksListObs.next(tasks);
   }
 
   removeTask(taskId: Guid) {
     const tasks = this.tasksListObs.getValue().filter(e => e.Id !== taskId);
     this.tasksListObs.next(tasks);
-    console.log('deleted task: ' + taskId);
   }
 
   getProjectsListObs(): Observable<Array<Project>> {

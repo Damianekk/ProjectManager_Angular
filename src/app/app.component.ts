@@ -1,5 +1,3 @@
-import { AppService } from './Services/app-service.service';
-import { Guid } from 'guid-typescript';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

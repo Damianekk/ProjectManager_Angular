@@ -3,18 +3,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent, TaskAddComponent, TaskDetailsComponent } from './index';
 import { CommonModule } from '@angular/common';
 import { TaskRoutingModule } from './task.routing.module';
+import { NbProgressBarModule, NbIconModule, NbButtonModule } from '@nebular/theme';
+
+const nbModules = [
+  NbProgressBarModule,
+  NbIconModule,
+  NbButtonModule,
+];
 
 @NgModule({
   declarations: [
     ListComponent,
     TaskAddComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     TaskRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    nbModules
   ]
 })
 export class TaskModule {}
