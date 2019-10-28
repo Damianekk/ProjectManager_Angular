@@ -25,8 +25,8 @@ import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot(),
-    NbLayoutModule
+    NbThemeModule.forRoot({ name: 'cosmic'}),
+    NbLayoutModule,
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

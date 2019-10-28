@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { ProjectRoutingModule } from './project.routing.module';
+import { NbToastrModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProjectRoutingModule } from './project.routing.module';
     ProjectRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    NbToastrModule.forRoot(),
   ]
 })
 export class ProjectModule {}
