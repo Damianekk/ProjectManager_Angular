@@ -3,7 +3,6 @@
         <label for="title">Title</label>
         <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100 placeholder="Enter title">
    </div>
-   <nb-progress-bar [value]="50"></nb-progress-bar>
-   <button nbButton ghost status="danger"><nb-icon icon="minus-circle-outline"></nb-icon></button>
+   <progress-bar-control [currProgress]="task.Progress" ></progress-bar-control>
    <button class="btn btn-outline-success" type="submit">Save</button>
 </form>

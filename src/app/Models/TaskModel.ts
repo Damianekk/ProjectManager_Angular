@@ -5,6 +5,7 @@ export class Task{
   Created: Date;
   Id: Guid;
   ProjectId?: Guid;
+  Progress: number;
 
   /**
    *
@@ -13,5 +14,6 @@ export class Task{
      this.Title = title;
      this.Created = new Date();
      this.Id = Guid.create();
+     this.Progress = 0;
   }
 }

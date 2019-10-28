@@ -1,3 +1,4 @@
+import { SharedModule } from './../Shared/shared.module';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent, TaskAddComponent, TaskDetailsComponent } from './index';
@@ -22,7 +23,8 @@ const nbModules = [
     FormsModule,
     TaskRoutingModule,
     ReactiveFormsModule,
-    nbModules
+    nbModules,
+    SharedModule
   ]
 })
 export class TaskModule {}
