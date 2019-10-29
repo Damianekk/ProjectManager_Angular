@@ -1,5 +1,5 @@
 import { AppService } from 'src/app/Services/app-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Task } from 'src/app/Models/TaskModel';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class TaskAddComponent implements OnInit {
 
   task: Task;
+  @ViewChild('progressBarRef',{ static: false }) progressBarRef: any;
   constructor(private appService: AppService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class TaskAddComponent implements OnInit {
   }
 
   onSubmit() {
+    this.task.Progress = this.progressBarRef.currProgress;
     this.appService.AddTask(this.task);
     this.router.navigate(['/tasks']);
   }

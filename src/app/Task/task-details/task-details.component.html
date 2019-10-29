@@ -1,5 +1,10 @@
-<p>
-  {{task.Title}}
-</p>
-
-<progress-bar-control [currProgress]="task.Progress" ></progress-bar-control>
+<nb-card>
+  <nb-card-header>Add task</nb-card-header>
+    <nb-card-body>
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" disabled="true">
+          </div>
+        <progress-bar-control #progressBarRef [currProgress]="task.Progress" ></progress-bar-control>
+    </nb-card-body>
+</nb-card>

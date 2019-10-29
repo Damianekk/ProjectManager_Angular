@@ -1,8 +1,13 @@
-<form (ngSubmit)="onSubmit()" >
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100 placeholder="Enter title">
-   </div>
-   <progress-bar-control [currProgress]="task.Progress" ></progress-bar-control>
-   <button class="btn btn-outline-success" type="submit">Save</button>
-</form>
+<nb-card>
+  <nb-card-header>Add task</nb-card-header>
+    <nb-card-body>
+        <form (ngSubmit)="onSubmit()" >
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100 placeholder="Enter title">
+          </div>
+        <progress-bar-control #progressBarRef [currProgress]="task.Progress" ></progress-bar-control>
+        <button class="btn btn-outline-success" type="submit">Save</button>
+      </form>
+    </nb-card-body>
+</nb-card>
