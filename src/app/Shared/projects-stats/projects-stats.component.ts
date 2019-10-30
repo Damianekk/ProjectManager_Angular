@@ -1,5 +1,6 @@
 import { AppService } from './../../Services/app-service.service';
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/Services/project-service.service';
 
 @Component({
   selector: 'app-projects-stats',
@@ -9,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectsStatsComponent implements OnInit {
 
   projectList;
-  constructor(private appService: AppService) {
+  constructor(private projectService: ProjectService) {
       // this.projectList = new Array<string>();
    }
 
   ngOnInit() {
-    this.appService.getProjectsListObs().subscribe((projects) => {
+    this.projectService.getProjectsListObs().subscribe((projects) => {
       this.projectList = projects;
     });
   }

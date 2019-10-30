@@ -5,6 +5,6 @@
               <label for="title">Title</label>
               <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" disabled="true">
           </div>
-        <progress-bar-control #progressBarRef [currProgress]="task.Progress" ></progress-bar-control>
+        <progress-bar-control #progressBarRef [currProgress]="task.Progress" [editable]="false"></progress-bar-control>
     </nb-card-body>
 </nb-card>

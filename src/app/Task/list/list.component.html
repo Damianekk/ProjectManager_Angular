@@ -6,6 +6,7 @@
   <li *ngFor="let task of tasks">
     {{task.Title}}
     <button [routerLink]="task.Id.toString()" class="btn btn-outline-dark">Details</button>
+    <button (click)="remove(task.Id)" class="btn btn-outline-danger">Remove</button>
   </li>
 </ul>
 </ng-template>

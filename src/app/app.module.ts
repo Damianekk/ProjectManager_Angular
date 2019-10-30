@@ -9,8 +9,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { from } from 'rxjs';
 import { AppService } from './Services/app-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { TaskService } from './Services/task-service.service';
+import { ProjectService } from './Services/project-service.service';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,11 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     SharedModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbToastrModule.forRoot(),
     NbLayoutModule,
     NbEvaIconsModule,
   ],
-  providers: [AppService],
+  providers: [AppService, TaskService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

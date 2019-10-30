@@ -1,7 +1,8 @@
-import { AppService } from 'src/app/Services/app-service.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Task } from 'src/app/Models/TaskModel';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
+import { TaskService } from 'src/app/Services/task-service.service';
 
 @Component({
   selector: 'app-task-add',
@@ -11,8 +12,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class TaskAddComponent implements OnInit {
 
   task: Task;
-  @ViewChild('progressBarRef',{ static: false }) progressBarRef: any;
-  constructor(private appService: AppService, private router: Router, private route: ActivatedRoute) { }
+  @ViewChild('progressBarRef', { static: false }) progressBarRef: any;
+  constructor(
+    private taskService: TaskService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private toastService: NbToastrService
+  ) { }
 
   ngOnInit() {
     this.task = new Task();
@@ -24,7 +30,8 @@ export class TaskAddComponent implements OnInit {
 
   onSubmit() {
     this.task.Progress = this.progressBarRef.currProgress;
-    this.appService.AddTask(this.task);
+    this.taskService.AddTask(this.task);
     this.router.navigate(['/tasks']);
+    this.toastService.success('New task added');
   }
 }

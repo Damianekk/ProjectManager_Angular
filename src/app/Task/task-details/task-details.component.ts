@@ -1,7 +1,7 @@
 import { Task } from './../../Models/TaskModel';
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/Services/app-service.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { TaskService } from 'src/app/Services/task-service.service';
 
 @Component({
   selector: 'app-task-details',
@@ -11,12 +11,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class TaskDetailsComponent implements OnInit {
 
   task: Task;
-  constructor(private appService: AppService, private route: ActivatedRoute) { }
+  constructor(private taskService: TaskService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((param: Params) => {
       const guid = param.get('id');
-      this.task = this.appService.getTask(guid);
+      this.task = this.taskService.getTask(guid);
     });
   }
 

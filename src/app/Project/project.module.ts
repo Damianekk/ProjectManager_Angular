@@ -19,7 +19,6 @@ import { NbToastrModule } from '@nebular/theme';
     ProjectRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    NbToastrModule.forRoot(),
   ]
 })
 export class ProjectModule {}

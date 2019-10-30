@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AppService } from './../../Services/app-service.service';
 import { from } from 'rxjs';
 import { Project } from 'src/app/Models/ProjectModel';
 import { NbToastrService } from '@nebular/theme';
+import { ProjectService } from 'src/app/Services/project-service.service';
 
 @Component({
   selector: 'app-project-add',
@@ -16,10 +16,9 @@ export class AddComponent implements OnInit {
   projectName = '';
   errorMsg = 'Fill field';
   showError = false;
-  constructor(private appService: AppService, private router: Router, private toastService: NbToastrService) {
+  constructor(private projectService: ProjectService, private router: Router, private toastService: NbToastrService) {
 
   }
-
 
   ngOnInit() {
     this.project = new Project();
@@ -32,9 +31,8 @@ export class AddComponent implements OnInit {
     }
     console.log(this.project.ProjectName);
     this.showError = false;
-    this.appService.AddProject(this.project);
+    this.projectService.AddProject(this.project);
     this.router.navigate(['/projects']);
     this.toastService.success('New project added');
-    this.toastService.danger('addas');
   }
 }

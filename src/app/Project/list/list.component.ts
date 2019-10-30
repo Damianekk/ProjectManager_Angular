@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from './../../Services/app-service.service';
 import { Project } from 'src/app/Models/ProjectModel';
+import { ProjectService } from 'src/app/Services/project-service.service';
 
 @Component({
   selector: 'app-project-list',
@@ -11,16 +12,16 @@ export class ListComponent implements OnInit {
 
   projects;
 
-  constructor(private appService: AppService) { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.appService.getProjectsListObs().subscribe(projects => {
+    this.projectService.getProjectsListObs().subscribe(projects => {
       this.projects = projects;
     });
   }
 
   add() {
-    this.appService.AddProject(new Project('auuu' + new Date().toTimeString()));
+    this.projectService.AddProject(new Project('auuu' + new Date().toTimeString()));
   }
 
 }

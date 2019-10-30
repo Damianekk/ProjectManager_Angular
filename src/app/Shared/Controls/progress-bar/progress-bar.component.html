@@ -1,3 +1,5 @@
 <nb-progress-bar [value]="currProgress"></nb-progress-bar>
-<button type="button" nbButton ghost status="danger"  (click)="decreaseProgress()"><nb-icon icon="minus-circle-outline"></nb-icon></button>
-<button type="button" nbButton ghost status="success" (click)="increaseProgress()" ><nb-icon icon="plus-circle-outline"></nb-icon></button>
+<div *ngIf="editable">
+  <button type="button" nbButton ghost status="danger"  (click)="decreaseProgress()"><nb-icon icon="minus-circle-outline"></nb-icon></button>
+  <button type="button" nbButton ghost status="success" (click)="increaseProgress()" ><nb-icon icon="plus-circle-outline"></nb-icon></button>
+</div>
