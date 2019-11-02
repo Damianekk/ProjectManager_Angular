@@ -1,13 +1,36 @@
 <nb-card>
   <nb-card-header>Add task</nb-card-header>
-    <nb-card-body>
-        <form (ngSubmit)="onSubmit()" >
-          <div class="form-group">
-              <label for="title">Title</label>
-              <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100 placeholder="Enter title">
-          </div>
-        <progress-bar-control #progressBarRef [currProgress]="task.Progress" ></progress-bar-control>
-        <button class="btn btn-outline-success" type="submit">Save</button>
-      </form>
-    </nb-card-body>
+  <nb-card-body>
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100
+          placeholder="Enter title" required>
+      </div>
+      <div class="form-group">
+        <label for="progress">Progress</label>
+        <progress-bar-control #progressBarRef [currProgress]="task.Progress" name="progress" id="progress">
+        </progress-bar-control>
+      </div>
+      <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input class="form-control col-md-2" [(ngModel)]="task.Deadline" [nbDatepicker]="dtpDeadline" name="deadline"
+          id="deadline">
+        <nb-datepicker #dtpDeadline name="deadline" id="deadline"></nb-datepicker>
+      </div>
+      <div class="form-group">
+        <label for="finished">Finished</label>
+        <input class="form-control col-md-2" [(ngModel)]="task.Finished" [nbDatepicker]="dtpFinished" name="finished"
+          id="finished">
+        <nb-datepicker #dtpFinished></nb-datepicker>
+      </div>
+      <div class="form-group">
+        <label for="created">Created</label>
+        <input class="form-control col-md-2" [(ngModel)]="task.Created" [nbDatepicker]="dtpCreated" name="created"
+          id="created">
+        <nb-datepicker #dtpCreated></nb-datepicker>
+      </div>
+      <button class="btn btn-outline-success" type="submit">Save</button>
+    </form>
+  </nb-card-body>
 </nb-card>

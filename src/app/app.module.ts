@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { from } from 'rxjs';
 import { AppService } from './Services/app-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbToastrModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TaskService } from './Services/task-service.service';
 import { ProjectService } from './Services/project-service.service';
@@ -27,10 +27,11 @@ import { ProjectService } from './Services/project-service.service';
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'cosmic' }),
     NbToastrModule.forRoot(),
+    NbDatepickerModule.forRoot(),
     NbLayoutModule,
     NbEvaIconsModule,
   ],
   providers: [AppService, TaskService, ProjectService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

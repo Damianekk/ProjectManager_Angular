@@ -17,11 +17,10 @@ export class AddComponent implements OnInit {
   errorMsg = 'Fill field';
   showError = false;
   constructor(private projectService: ProjectService, private router: Router, private toastService: NbToastrService) {
-
+    this.project = new Project();
   }
 
   ngOnInit() {
-    this.project = new Project();
   }
 
   addProject() {
@@ -29,7 +28,6 @@ export class AddComponent implements OnInit {
       this.showError = true;
       return;
     }
-    console.log(this.project.ProjectName);
     this.showError = false;
     this.projectService.AddProject(this.project);
     this.router.navigate(['/projects']);

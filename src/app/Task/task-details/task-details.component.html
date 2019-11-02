@@ -1,10 +1,29 @@
 <nb-card>
-  <nb-card-header>Add task</nb-card-header>
-    <nb-card-body>
-          <div class="form-group">
-              <label for="title">Title</label>
-              <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" disabled="true">
-          </div>
-        <progress-bar-control #progressBarRef [currProgress]="task.Progress" [editable]="false"></progress-bar-control>
-    </nb-card-body>
+  <nb-card-header>Task details</nb-card-header>
+  <nb-card-body>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" disabled="true">
+    </div>
+    <div class="form-group">
+      <label for="progress">Progress</label>
+      <progress-bar-control #progressBarRef [currProgress]="task.Progress" [editable]="false" name="progress" id="progress">
+      </progress-bar-control>
+    </div>
+    <div class="form-group">
+      <label for="deadline">Deadline</label>
+      <input class="form-control col-md-2" [(ngModel)]="task.Deadline" name="deadline"
+        id="deadline" disabled="true">
+    </div>
+    <div class="form-group">
+      <label for="finished">Finished</label>
+      <input class="form-control col-md-2" [(ngModel)]="task.Finished" name="finished"
+        id="finished" disabled="true">
+    </div>
+    <div class="form-group">
+      <label for="created">Created</label>
+      <input class="form-control col-md-2" [(ngModel)]="task.Created" name="created"
+        id="created" disabled="true">
+    </div>
+  </nb-card-body>
 </nb-card>

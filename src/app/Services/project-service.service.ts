@@ -20,7 +20,6 @@ export class ProjectService {
   }
 
   AddProject(newProject: Project){
-    console.log(newProject);
     const projects = this.projectsListObs.getValue();
     projects.push(newProject);
     this.projectsListObs.next(projects);

@@ -4,13 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent, TaskAddComponent, TaskDetailsComponent } from './index';
 import { CommonModule } from '@angular/common';
 import { TaskRoutingModule } from './task.routing.module';
-import { NbProgressBarModule, NbIconModule, NbButtonModule, NbCardModule } from '@nebular/theme';
+import { NbProgressBarModule, NbIconModule, NbButtonModule, NbCardModule, NbDatepickerModule } from '@nebular/theme';
 
 const nbModules = [
   NbProgressBarModule,
   NbIconModule,
   NbButtonModule,
   NbCardModule,
+  NbDatepickerModule,
 ];
 
 @NgModule({
