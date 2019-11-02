@@ -1,15 +1,18 @@
-<button class="btn btn-outline-info" routerLink="/tasks/add" >Add task</button>
+<div style="float: left;">
+  <button class="btn btn-outline-info" routerLink="/tasks/add">Add task</button>
 
-<div *ngIf="tasks.length>0; then taskList else emptyListInfo"></div>
-<ng-template #taskList>
-<ul>
-  <li *ngFor="let task of tasks">
-    {{task.Title}}
-    <button [routerLink]="task.Id.toString()" class="btn btn-outline-dark">Details</button>
-    <button (click)="remove(task.Id)" class="btn btn-outline-danger">Remove</button>
-  </li>
-</ul>
-</ng-template>
-<ng-template #emptyListInfo>
-  <h3 style="color: red">Task list empty</h3>
-</ng-template>
+  <div *ngIf="tasks.length>0; then taskList else emptyListInfo"></div>
+  <ng-template #taskList>
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{task.Title}}
+        <button [routerLink]="task.Id.toString()" class="btn btn-outline-dark">Details</button>
+        <button (click)="remove(task.Id)" class="btn btn-outline-danger">Remove</button>
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #emptyListInfo>
+    <h3 style="color: red">Task list empty</h3>
+  </ng-template>
+</div>
+<router-outlet></router-outlet>

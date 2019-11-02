@@ -4,20 +4,22 @@ import { TaskAddComponent, ListComponent, TaskDetailsComponent } from './index';
 
 const routes: Routes = [
   {
-    path: 'add',
-    component: TaskAddComponent
-  },
-  {
-    path: 'add/:id',
-    component: TaskAddComponent
-  },
-  {
-    path: ':id',
-    component: TaskDetailsComponent
-  },
-  {
     path: '',
-    component: ListComponent
+    component: ListComponent,
+    children: [
+      {
+        path: 'add',
+        component: TaskAddComponent
+      },
+      {
+        path: 'add/:id',
+        component: TaskAddComponent
+      },
+      {
+        path: ':id',
+        component: TaskDetailsComponent
+      },
+    ]
   },
 ];
 

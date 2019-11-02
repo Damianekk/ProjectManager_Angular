@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { ProjectRoutingModule } from './project.routing.module';
-import { NbToastrModule } from '@nebular/theme';
+import { NbToastrModule, NbCardModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { NbToastrModule } from '@nebular/theme';
     ProjectRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    NbCardModule,
   ]
 })
 export class ProjectModule {}
