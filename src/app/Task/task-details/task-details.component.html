@@ -1,5 +1,5 @@
 <nb-card>
-  <nb-card-header>Task details</nb-card-header>
+  <nb-card-header>Task details <div style="float: right"><button type="button" *ngIf="task.ProjectId" [routerLink]="['/projects/', task.ProjectId.toString()]" class="btn btn-success my-xl-n5">Project</button></div></nb-card-header>
   <nb-card-body>
     <div class="form-group">
       <label for="title">Title</label>
@@ -25,5 +25,9 @@
       <input class="form-control col-md-3" [(ngModel)]="task.Created" name="created"
         id="created" disabled="true">
     </div>
+    <div class="col-md-6" style="float:right">
+        <label for="usersDropdown">User</label>
+        <users-dropdownlist [(inputModel)]="task.ClientId" #selectedUserRef name="usersDropdown" id="usersDropdown"></users-dropdownlist>
+      </div>
   </nb-card-body>
 </nb-card>

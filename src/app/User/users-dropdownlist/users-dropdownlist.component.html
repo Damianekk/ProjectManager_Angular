@@ -1,0 +1,3 @@
+<select [(ngModel)]="inputModel" class="form-control" (ngModelChange)="inputModelChange.emit(inputModel)">
+  <option [value]="user.Id" *ngFor="let user of users">{{user.Name}} {{user.Surname}}</option>
+</select>

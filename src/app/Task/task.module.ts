@@ -5,6 +5,7 @@ import { ListComponent, TaskAddComponent, TaskDetailsComponent } from './index';
 import { CommonModule } from '@angular/common';
 import { TaskRoutingModule } from './task.routing.module';
 import { NbProgressBarModule, NbIconModule, NbButtonModule, NbCardModule, NbDatepickerModule } from '@nebular/theme';
+import { UsersDropdownlistComponent } from '../User/users-dropdownlist/users-dropdownlist.component';
 
 const nbModules = [
   NbProgressBarModule,
@@ -19,6 +20,7 @@ const nbModules = [
     ListComponent,
     TaskAddComponent,
     TaskDetailsComponent,
+    UsersDropdownlistComponent
   ],
   imports: [
     CommonModule,

@@ -17,7 +17,6 @@ export class TaskAddComponent implements OnInit {
   @ViewChild('progressBarRef', { static: false }) progressBarRef: any;
   constructor(
     private taskService: TaskService,
-    private router: Router,
     private route: ActivatedRoute,
     private toastService: NbToastrService,
     private location: Location

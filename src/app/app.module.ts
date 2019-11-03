@@ -13,6 +13,7 @@ import { NbThemeModule, NbLayoutModule, NbToastrModule, NbDatepickerModule } fro
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TaskService } from './Services/task-service.service';
 import { ProjectService } from './Services/project-service.service';
+import { PersonService } from './Services/person-service.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ProjectService } from './Services/project-service.service';
     NbLayoutModule,
     NbEvaIconsModule,
   ],
-  providers: [AppService, TaskService, ProjectService],
+  providers: [AppService, TaskService, ProjectService, PersonService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

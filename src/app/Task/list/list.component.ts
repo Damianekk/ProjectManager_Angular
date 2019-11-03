@@ -3,6 +3,7 @@ import { Task } from 'src/app/Models/TaskModel';
 import { TaskService } from 'src/app/Services/task-service.service';
 import { Guid } from 'guid-typescript';
 import { NbToastrService } from '@nebular/theme';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
@@ -12,7 +13,7 @@ import { NbToastrService } from '@nebular/theme';
 export class ListComponent implements OnInit {
 
   tasks: Array<Task>;
-  constructor(private taskService: TaskService, private toastService: NbToastrService) { }
+  constructor(private taskService: TaskService, private toastService: NbToastrService, private router: Router) { }
 
   ngOnInit() {
     this.taskService.getTasksListObs().subscribe(tasks => {
@@ -23,6 +24,7 @@ export class ListComponent implements OnInit {
   remove(guid: Guid){
     this.taskService.removeTask(guid);
     this.toastService.success('Task removed');
+    this.router.navigate(['/tasks']);
   }
 
 }
