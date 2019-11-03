@@ -3,31 +3,34 @@
   <nb-card-body>
     <div class="form-group">
       <label for="title">Title</label>
-      <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" disabled="true">
+      <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100
+        placeholder="Enter title" disabled="true">
     </div>
     <div class="form-group">
       <label for="progress">Progress</label>
-      <progress-bar-control #progressBarRef [currProgress]="task.Progress" [editable]="false" name="progress" id="progress">
+      <progress-bar-control [currProgress]="task.Progress" [editable]="false">
       </progress-bar-control>
     </div>
-    <div class="form-group">
-      <label for="deadline">Deadline</label>
-      <input class="form-control col-md-3" [(ngModel)]="task.Deadline" name="deadline"
-        id="deadline" disabled="true">
-    </div>
-    <div class="form-group">
-      <label for="finished">Finished</label>
-      <input class="form-control col-md-3" [(ngModel)]="task.Finished" name="finished"
-        id="finished" disabled="true">
-    </div>
-    <div class="form-group">
-      <label for="created">Created</label>
-      <input class="form-control col-md-3" [(ngModel)]="task.Created" name="created"
-        id="created" disabled="true">
+    <div class="col-md-6" style="float: left;">
+      <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input class="form-control col-md-10" [(ngModel)]="task.Deadline" [nbDatepicker]="dtpDeadline" disabled="true">
+        <nb-datepicker #dtpDeadline></nb-datepicker>
+      </div>
+      <div class="form-group">
+        <label for="finished">Finished</label>
+        <input class="form-control col-md-10" [(ngModel)]="task.Finished" [nbDatepicker]="dtpFinished" disabled="true">
+        <nb-datepicker #dtpFinished></nb-datepicker>
+      </div>
+      <div class="form-group">
+        <label for="created">Created</label>
+        <input class="form-control col-md-10" [(ngModel)]="task.Created" [nbDatepicker]="dtpCreated" disabled="true">
+        <nb-datepicker #dtpCreated></nb-datepicker>
+      </div>
     </div>
     <div class="col-md-6" style="float:right">
-        <label for="usersDropdown">User</label>
-        <users-dropdownlist [(inputModel)]="task.ClientId" #selectedUserRef name="usersDropdown" id="usersDropdown"></users-dropdownlist>
-      </div>
+      <label for="usersDropdown">User</label>
+      <users-dropdownlist [(inputModel)]="task.ClientId" name="usersDropdown" id="usersDropdown" [editable]="false"></users-dropdownlist>
+    </div>
   </nb-card-body>
 </nb-card>

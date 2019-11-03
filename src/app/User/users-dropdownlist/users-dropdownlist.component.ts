@@ -13,13 +13,16 @@ export class UsersDropdownlistComponent implements OnInit {
   users: PersonBase[];
 
   @Input() inputModel: Guid;
+  @Input() editable: boolean;
+  @Input() required: boolean;
   @Output() inputModelChange = new EventEmitter<Guid>();
 
 
-  constructor(private userService: PersonService) {}
+  constructor(private userService: PersonService) {
+    this.editable = true;
+  }
 
   ngOnInit() {
-
     this.userService.getPersonsListObs().subscribe(users => {
       this.users = users;
     });

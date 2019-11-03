@@ -1,3 +1,5 @@
-<select [(ngModel)]="inputModel" class="form-control" (ngModelChange)="inputModelChange.emit(inputModel)">
+<form>
+<select [(ngModel)]="inputModel" name="selectUser" id="selectUser" class="form-control" (ngModelChange)="inputModelChange.emit(inputModel)" [disabled]="!editable" [required]="required" >
   <option [value]="user.Id" *ngFor="let user of users">{{user.Name}} {{user.Surname}}</option>
 </select>
+</form>
