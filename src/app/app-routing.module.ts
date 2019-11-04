@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./Task/task.module').then(m => m.TaskModule)
   },
   {
+    path: 'payments',
+    loadChildren: () => import('./Payment/payment.module').then(m => m.PaymentModule)
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   },

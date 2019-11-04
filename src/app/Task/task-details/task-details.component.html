@@ -1,36 +1,49 @@
 <nb-card>
-  <nb-card-header>Task details <div style="float: right"><button type="button" *ngIf="task.ProjectId" [routerLink]="['/projects/', task.ProjectId.toString()]" class="btn btn-success my-xl-n5">Project</button></div></nb-card-header>
-  <nb-card-body>
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100
-        placeholder="Enter title" disabled="true">
-    </div>
-    <div class="form-group">
-      <label for="progress">Progress</label>
-      <progress-bar-control [currProgress]="task.Progress" [editable]="false">
-      </progress-bar-control>
-    </div>
-    <div class="col-md-6" style="float: left;">
-      <div class="form-group">
-        <label for="deadline">Deadline</label>
-        <input class="form-control col-md-10" [(ngModel)]="task.Deadline" [nbDatepicker]="dtpDeadline" disabled="true">
-        <nb-datepicker #dtpDeadline></nb-datepicker>
-      </div>
-      <div class="form-group">
-        <label for="finished">Finished</label>
-        <input class="form-control col-md-10" [(ngModel)]="task.Finished" [nbDatepicker]="dtpFinished" disabled="true">
-        <nb-datepicker #dtpFinished></nb-datepicker>
-      </div>
-      <div class="form-group">
-        <label for="created">Created</label>
-        <input class="form-control col-md-10" [(ngModel)]="task.Created" [nbDatepicker]="dtpCreated" disabled="true">
-        <nb-datepicker #dtpCreated></nb-datepicker>
-      </div>
-    </div>
-    <div class="col-md-6" style="float:right">
-      <label for="usersDropdown">User</label>
-      <users-dropdownlist [(inputModel)]="task.ClientId" name="usersDropdown" id="usersDropdown" [editable]="false"></users-dropdownlist>
-    </div>
-  </nb-card-body>
-</nb-card>
+    <nb-card-header>Task details <div style="float: right"><button type="button" *ngIf="task.ProjectId"
+          [routerLink]="['/projects/', task.ProjectId.toString()]" class="btn btn-success my-xl-n5">Project</button></div>
+    </nb-card-header>
+    <nb-card-body>
+      <nb-tabset>
+        <nb-tab tabTitle="Users" badgeText="99+" badgeStatus="danger">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100
+              placeholder="Enter title" disabled="true">
+          </div>
+          <div class="form-group">
+            <label for="progress">Progress</label>
+            <progress-bar-control [currProgress]="task.Progress" [editable]="false">
+            </progress-bar-control>
+          </div>
+          <div class="col-md-6" style="float: left;">
+            <div class="form-group">
+              <label for="deadline">Deadline</label>
+              <input class="form-control col-md-10" [(ngModel)]="task.Deadline" [nbDatepicker]="dtpDeadline"
+                disabled="true">
+              <nb-datepicker #dtpDeadline></nb-datepicker>
+            </div>
+            <div class="form-group">
+              <label for="finished">Finished</label>
+              <input class="form-control col-md-10" [(ngModel)]="task.Finished" [nbDatepicker]="dtpFinished"
+                disabled="true">
+              <nb-datepicker #dtpFinished></nb-datepicker>
+            </div>
+            <div class="form-group">
+              <label for="created">Created</label>
+              <input class="form-control col-md-10" [(ngModel)]="task.Created" [nbDatepicker]="dtpCreated"
+                disabled="true">
+              <nb-datepicker #dtpCreated></nb-datepicker>
+            </div>
+          </div>
+          <div class="col-md-6" style="float:right">
+            <label for="usersDropdown">User</label>
+            <users-dropdownlist [(inputModel)]="task.ClientId" name="usersDropdown" id="usersDropdown" [editable]="false">
+            </users-dropdownlist>
+          </div>
+        </nb-tab>
+        <nb-tab tabTitle="Transactions" badgeText="new" badgePosition="top right" badgeStatus="success">
+          <payment-list [(taskId)]="task.Id"></payment-list>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card-body>
+  </nb-card>

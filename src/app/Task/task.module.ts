@@ -4,8 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListComponent, TaskAddComponent, TaskDetailsComponent } from './index';
 import { CommonModule } from '@angular/common';
 import { TaskRoutingModule } from './task.routing.module';
-import { NbProgressBarModule, NbIconModule, NbButtonModule, NbCardModule, NbDatepickerModule } from '@nebular/theme';
+import { NbProgressBarModule, NbIconModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbTabsetModule, NbRouteTabsetModule } from '@nebular/theme';
 import { UsersDropdownlistComponent } from '../User/users-dropdownlist/users-dropdownlist.component';
+import { PaymentModule } from '../Payment/payment.module';
 
 const nbModules = [
   NbProgressBarModule,
@@ -13,6 +14,8 @@ const nbModules = [
   NbButtonModule,
   NbCardModule,
   NbDatepickerModule,
+  NbTabsetModule,
+  NbRouteTabsetModule,
 ];
 
 @NgModule({
@@ -28,7 +31,8 @@ const nbModules = [
     TaskRoutingModule,
     ReactiveFormsModule,
     nbModules,
-    SharedModule
+    SharedModule,
+    PaymentModule,
   ]
 })
 export class TaskModule {}

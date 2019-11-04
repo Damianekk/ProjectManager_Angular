@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-5" style="float: left;">
+    <!-- <button class="btn btn-outline-info" routerLink="/projects/add">Add project</button>
+    <button class="btn btn-outline-danger" (click)="add()">Fake project</button> -->
+
+
+    <div *ngIf="payments.length>0; then paymentList else emptyListInfo"></div>
+    <ng-template #paymentList>
+      <ul>
+        <li *ngFor="let payment of payments">
+          {{payment.Amount}}
+          <!-- <button [routerLink]="['/tasks/add/', project.Id.toString()]" class="btn btn-outline-success">Add
+            task</button>
+          <button [routerLink]="['/projects/', project.Id.toString()]" class="btn btn-outline-dark">Details</button> -->
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #emptyListInfo>
+      <h3 style="color: red">Payment list empty</h3>
+    </ng-template>
+  </div>
+  <div class="col-sm-7">
+    <router-outlet></router-outlet>
+  </div>
+</div>
