@@ -34,7 +34,7 @@ export class TaskAddComponent implements OnInit {
   }
 
   onSubmit(taskForm) {
-    if (taskForm.form.status !== 'VALID') {
+    if (!taskForm.valid) {
       this.toastService.warning('Please ensure valid data');
       return;
     }
