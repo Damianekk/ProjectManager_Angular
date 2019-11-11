@@ -8,16 +8,22 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   templateUrl: './payment-list.component.html',
   styleUrls: ['./payment-list.component.less']
 })
-export class PaymentListComponent implements OnInit{
+export class PaymentListComponent implements OnInit {
 
   @Input() taskId: Guid;
   payments;
-  constructor(private paymentService: PaymentService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private paymentService: PaymentService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((param: Params) => {
       const guid = param.get('id');
-      this.payments = this.paymentService.getTaskPayments(Guid.parse(guid));
+      this.paymentService.getPaymentListObs().subscribe(payments => {
+        if (guid) {
+          this.payments = payments.filter(z => z.TaskId.toString() === guid);
+        } else {
+          this.payments = payments;
+        }
+      });
     });
   }
 }

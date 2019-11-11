@@ -33,8 +33,8 @@ export class PaymentService {
     return this.paymentListObs.asObservable();
   }
 
-  getTaskPayments(paymentId: Guid): Array<Payment> {
-    const tasks = this.paymentListObs.getValue().filter(x => x.TaskId && x.TaskId.equals(paymentId) );
+  getTaskPayments(taskId: Guid): Array<Payment> {
+    const tasks = this.paymentListObs.getValue().filter(x => x.TaskId && x.TaskId.equals(taskId) );
     return tasks;
   }
 

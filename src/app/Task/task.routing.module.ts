@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TaskAddComponent, ListComponent, TaskDetailsComponent } from './index';
+import { PaymentAddComponent } from '../Payment/payment-add/payment-add.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,13 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: TaskDetailsComponent
+        component: TaskDetailsComponent,
+        children: [
+          {
+            path: 'addPayment',
+            component: PaymentAddComponent
+          },
+        ]
       },
     ]
   },

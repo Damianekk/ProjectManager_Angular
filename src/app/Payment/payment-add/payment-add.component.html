@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-header>Add payment</nb-card-header>
+  <nb-card-body>
+    <form #paymentForm="ngForm" (ngSubmit)="onSubmit(paymentForm)">
+
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input class="form-control" type="text" [(ngModel)]="payment.Amount" name="amount" id="amount" maxlength=100
+          placeholder="Enter amount" required>
+      </div>
+
+      <div class="form-group">
+        <label for="paymentDate">Payment date</label>
+        <input class="form-control col-md-10" [(ngModel)]="payment.PaymentDate" [nbDatepicker]="dtpPaymentDate" name="paymentDate"
+          id="deadline">
+        <nb-datepicker #dtpPaymentDate name="paymentDate" id="paymentDate"></nb-datepicker>
+      </div>
+      <button class="btn btn-outline-success" type="submit">Save</button>
+    </form>
+  </nb-card-body>
+</nb-card>

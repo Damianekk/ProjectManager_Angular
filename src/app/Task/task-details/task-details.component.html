@@ -45,5 +45,7 @@
           <payment-list [(taskId)]="task.Id"></payment-list>
         </nb-tab>
       </nb-tabset>
+      <button class="btn btn-outline-info" routerLink="/tasks/{{task.Id}}/addPayment/">Add payment</button>
+      <router-outlet></router-outlet>
     </nb-card-body>
   </nb-card>

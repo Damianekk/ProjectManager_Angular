@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-sm-5" style="float: left;">
-    <!-- <button class="btn btn-outline-info" routerLink="/projects/add">Add project</button>
-    <button class="btn btn-outline-danger" (click)="add()">Fake project</button> -->
-
+    <!-- <button class="btn btn-outline-info" routerLink="/payments/add">Add payment</button> -->
 
     <div *ngIf="payments.length>0; then paymentList else emptyListInfo"></div>
     <ng-template #paymentList>
