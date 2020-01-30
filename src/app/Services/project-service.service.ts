@@ -25,7 +25,6 @@ export class ProjectService {
     this.projectsListObs.next(projects);
   }
 
-
   getProjectsListObs(): Observable<Array<Project>> {
     return this.projectsListObs.asObservable();
   }

@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./Payment/payment.module').then(m => m.PaymentModule)
   },
   {
+    path: '',
+    redirectTo: 'projects',
+    pathMatch: 'full',
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   },

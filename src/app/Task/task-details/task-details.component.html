@@ -43,9 +43,9 @@
         </nb-tab>
         <nb-tab tabTitle="Transactions" badgeText="new" badgePosition="top right" badgeStatus="success">
           <payment-list [(taskId)]="task.Id"></payment-list>
+          <button class="btn btn-outline-info" routerLink="/tasks/{{task.Id}}/addPayment/">Add payment</button>
         </nb-tab>
       </nb-tabset>
-      <button class="btn btn-outline-info" routerLink="/tasks/{{task.Id}}/addPayment/">Add payment</button>
       <router-outlet></router-outlet>
     </nb-card-body>
   </nb-card>

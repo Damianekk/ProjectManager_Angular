@@ -2,7 +2,6 @@
   <nb-card-header>Add task</nb-card-header>
   <nb-card-body>
     <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
-
       <div class="form-group">
         <label for="title">Title</label>
         <input class="form-control" type="text" [(ngModel)]="task.Title" name="title" id="title" maxlength=100
@@ -13,6 +12,7 @@
         <progress-bar-control #progressBarRef [currProgress]="task.Progress" name="progress" id="progress">
         </progress-bar-control>
       </div>
+      <div class="row">
       <div class="col-md-6" style="float: left;">
         <div class="form-group">
           <label for="deadline">Deadline</label>
@@ -37,6 +37,7 @@
         <label for="usersDropdown">User</label>
         <users-dropdownlist [(inputModel)]="task.ClientId" name="usersDropdown" id="usersDropdown" [required]="true"></users-dropdownlist>
       </div>
+    </div>
       <button class="btn btn-outline-success" type="submit">Save</button>
     </form>
   </nb-card-body>
